@@ -1,0 +1,63 @@
+<div class="wrapper">
+  <mat-card>
+    <form [formGroup]="form" (ngSubmit)="onSignIn()">
+
+      <!--email-->
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input [formControl]="form.controls['email']" matInput [placeholder]="'rafael@toledano.illan'"
+               autocomplete="email">
+        <mat-icon matSuffix>mail</mat-icon>
+        <mat-error *ngIf="form.controls['email'].hasError('required')">
+          <span [innerHTML]="'Email is required'"></span>
+        </mat-error>
+        <mat-error *ngIf="form.controls['email'].hasError('minlength')">
+          <span [innerHTML]="'Email is too short'"></span>
+        </mat-error>
+        <mat-error *ngIf="form.controls['email'].hasError('maxlength')">
+          <span [innerHTML]="'Email is too long'"></span>
+        </mat-error>
+        <mat-error *ngIf="form.controls['email'].hasError('email')">
+          <span [innerHTML]="'Not an email'"></span>
+        </mat-error>
+      </mat-form-field>
+
+      <!--password-->
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input #signInPasswordInput [formControl]="form.controls['password']" matInput
+               [placeholder]="'******'" autocomplete="current-password" type="password">
+        <mat-icon class="password-icon"
+          (click)="signInPasswordInput.type === 'text' ? signInPasswordInput.type = 'password' : signInPasswordInput.type = 'text'"
+          matSuffix>
+          lock
+        </mat-icon>
+        <mat-error *ngIf="form.controls['password'].hasError('required')">
+          <span [innerHTML]="'Password is required'"></span>
+        </mat-error>
+        <mat-error *ngIf="form.controls['password'].hasError('minlength')">
+          <span [innerHTML]="'Password is too short'"></span>
+        </mat-error>
+        <mat-error *ngIf="form.controls['password'].hasError('maxlength')">
+          <span [innerHTML]="'Password is too long'"></span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-error *ngIf="form.hasError('somethingWentWrong')">
+        <span *ngFor="let errorMessage of errorMessages" [innerHTML]="errorMessage"></span>
+        <span *ngIf="errorMessages.length === 0"
+              [innerHTML]="'Oops! Something went wrong'"></span>
+      </mat-error>
+
+      <button *ngIf="!loading" color="primary" mat-flat-button>
+        Log In
+      </button>
+
+      <a [routerLink]="['/welcome/sign-up']" class="register">
+        No account yet? Register here
+      </a>
+
+      <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    </form>
+  </mat-card>
+</div>

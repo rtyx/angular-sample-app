@@ -1,0 +1,33 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(27, 89, 157);
+  background: linear-gradient(156deg, rgba(27, 89, 157, 1) 13%, rgba(0, 122, 240, 1) 91%);
+}
+
+
+mat-card {
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    mat-form-field {
+      margin-bottom: 6px;
+    }
+
+    button {
+      width: 100%;
+      margin-bottom: 6px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333333;
+    }
+  }
+}

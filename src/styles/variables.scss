@@ -1,0 +1,56 @@
+$snglr-blue: #007AFF;
+$snglr-yellow: #FDBB30;
+
+$snglr-blue-palette: (
+  50 : #e0efff,
+  100 : #b3d7ff,
+  200 : #80bdff,
+  300 : #4da2ff,
+  400 : #268eff,
+  500 : #007aff,
+  600 : #0072ff,
+  700 : #0067ff,
+  800 : #005dff,
+  900 : #004aff,
+  A100 : #ffffff,
+  A200 : #f2f5ff,
+  A400 : #bfceff,
+  A700 : #a6baff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+@import '~@angular/material/theming';
+
+$app-primary: mat-palette($snglr-blue-palette);
+$app-accent: mat-palette($mat-orange);
+$app-warn: mat-palette($mat-red);
+$primary: mat-color($app-primary);
+$accent: mat-color($app-accent);
+$warn: mat-color($app-warn);
+
+// Breakpoint variables
+
+$s: 540px;
+$ss: 575px;
+$m: 720px;
+$mm: 767px;
+$l: 992px;
+$xl: 1200px;
+$xxl: 1440px;
+$xxxl: 1680px;
+$xxxxl: 1920px;
