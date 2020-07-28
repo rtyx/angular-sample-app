@@ -1,4 +1,6 @@
 <div class="wrapper">
+  <h1>Continue to your account</h1>
+
   <mat-card>
     <form [formGroup]="form" (ngSubmit)="onSignIn()">
 
@@ -7,7 +9,6 @@
         <mat-label>Email</mat-label>
         <input [formControl]="form.controls['email']" matInput [placeholder]="'rafael@toledano.illan'"
                autocomplete="email">
-        <mat-icon matSuffix>mail</mat-icon>
         <mat-error *ngIf="form.controls['email'].hasError('required')">
           <span [innerHTML]="'Email is required'"></span>
         </mat-error>
@@ -28,8 +29,8 @@
         <input #signInPasswordInput [formControl]="form.controls['password']" matInput
                [placeholder]="'******'" autocomplete="current-password" type="password">
         <mat-icon class="password-icon"
-          (click)="signInPasswordInput.type === 'text' ? signInPasswordInput.type = 'password' : signInPasswordInput.type = 'text'"
-          matSuffix>
+                  (click)="signInPasswordInput.type === 'text' ? signInPasswordInput.type = 'password' : signInPasswordInput.type = 'text'"
+                  matSuffix>
           lock
         </mat-icon>
         <mat-error *ngIf="form.controls['password'].hasError('required')">
@@ -53,7 +54,7 @@
         Log In
       </button>
 
-      <a [routerLink]="['/welcome/sign-up']" class="register">
+      <a [routerLink]="['/welcome/sign-up']">
         No account yet? Register here
       </a>
 

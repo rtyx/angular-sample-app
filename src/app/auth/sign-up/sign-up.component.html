@@ -1,4 +1,6 @@
 <div class="wrapper">
+  <h1>Join to discover all the data behind this app</h1>
+
   <mat-card>
     <form [formGroup]="form" (ngSubmit)="onSignUp()">
 
@@ -7,7 +9,6 @@
         <mat-label>Name</mat-label>
         <input [formControl]="form.controls['name']" matInput [placeholder]="'Rafael Toledano'"
                autocomplete="name">
-        <mat-icon matSuffix>person</mat-icon>
         <mat-error *ngIf="form.controls['name'].hasError('required')">
           <span [innerHTML]="'Email is required'"></span>
         </mat-error>
@@ -24,7 +25,6 @@
         <mat-label>Email</mat-label>
         <input [formControl]="form.controls['email']" matInput [placeholder]="'rafael@toledano.illan'"
                autocomplete="email">
-        <mat-icon matSuffix>mail</mat-icon>
         <mat-error *ngIf="form.controls['email'].hasError('required')">
           <span [innerHTML]="'Email is required'"></span>
         </mat-error>
@@ -67,8 +67,12 @@
       </mat-error>
 
       <button *ngIf="!loading" color="primary" mat-flat-button>
-        Sign up
+        Create an account
       </button>
+
+      <a [routerLink]="['/welcome/log-in']">
+        Already registered? Log in here
+      </a>
 
       <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
     </form>
