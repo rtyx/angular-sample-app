@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "deploy": "ng build --prod --output-path docs --base-href /singlr/ && git add . && git commit -m \"deployed\" && git push"
+    "deploy": "ng build --prod --output-path docs --base-href /angular-sample-app/ && git add . && git commit -m \"deployed\" && git push"
   },
   "private": true,
   "dependencies": {
