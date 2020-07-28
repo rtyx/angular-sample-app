@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
-import { AuthService, CustomersService } from '../_core/services';
+import { CustomersService } from '../_core/services';
 import { Customer } from '../_core/interfaces/customer';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { SelectionModel } from '@angular/cdk/collections';
 import { ProjectsDialogComponent } from './projects-dialog/projects-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -15,7 +14,6 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class CustomersComponent implements OnInit {
 
-  public selection = new SelectionModel<Customer>(true, []);
   public tableColumns: string[] = ['id', 'name', 'lastProject', 'updatedAt'];
   public dataSource: MatTableDataSource<Customer>;
 
@@ -23,8 +21,7 @@ export class CustomersComponent implements OnInit {
   @ViewChild(MatSort) public sort: MatSort;
 
   constructor(private customersService: CustomersService,
-              private matDialog: MatDialog,
-              private authService: AuthService) {
+              private matDialog: MatDialog) {
   }
 
   public async ngOnInit() {
@@ -44,13 +41,10 @@ export class CustomersComponent implements OnInit {
     }
   }
 
-  onLogOut() {
-    this.authService.signOut()
-  }
-
   openProjectsDialog(customer: Customer) {
     this.matDialog.open(ProjectsDialogComponent, {
-      data: customer
+      data: customer,
+      autoFocus: false
     })
   }
 }

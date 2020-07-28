@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { CustomPipesModule } from '../_core/pipes/custom-pipes.module';
 import { HeaderComponent } from './header/header.component';
 import { ProjectsDialogComponent } from './projects-dialog/projects-dialog.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ProjectsDialogComponent } from './projects-dialog/projects-dialog.compo
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    CustomPipesModule
+    CustomPipesModule,
+    MatProgressSpinnerModule
   ]
 })
 export class CustomersModule {
