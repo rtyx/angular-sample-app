@@ -5,6 +5,8 @@ import { Customer } from '../_core/interfaces/customer';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
+import { ProjectsDialogComponent } from './projects-dialog/projects-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-customers',
@@ -14,13 +16,14 @@ import { SelectionModel } from '@angular/cdk/collections';
 export class CustomersComponent implements OnInit {
 
   public selection = new SelectionModel<Customer>(true, []);
-  public tableColumns: string[] = ['id', 'name', 'house', 'updatedAt'];
+  public tableColumns: string[] = ['id', 'name', 'lastProject', 'updatedAt'];
   public dataSource: MatTableDataSource<Customer>;
 
   @ViewChild(MatPaginator) public paginator: MatPaginator;
   @ViewChild(MatSort) public sort: MatSort;
 
   constructor(private customersService: CustomersService,
+              private matDialog: MatDialog,
               private authService: AuthService) {
   }
 
@@ -34,6 +37,7 @@ export class CustomersComponent implements OnInit {
         (customers) => {
           this.dataSource = new MatTableDataSource<Customer>(customers);
           this.dataSource.sort = this.sort;
+
         });
     } catch (err) {
       console.error(`Error retrieving customers`);
@@ -42,5 +46,11 @@ export class CustomersComponent implements OnInit {
 
   onLogOut() {
     this.authService.signOut()
+  }
+
+  openProjectsDialog(customer: Customer) {
+    this.matDialog.open(ProjectsDialogComponent, {
+      data: customer
+    })
   }
 }

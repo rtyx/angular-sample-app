@@ -11,10 +11,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CustomPipesModule } from '../_core/pipes/custom-pipes.module';
+import { HeaderComponent } from './header/header.component';
+import { ProjectsDialogComponent } from './projects-dialog/projects-dialog.component';
 
 
 @NgModule({
-  declarations: [CustomersComponent],
+  declarations: [CustomersComponent, HeaderComponent, ProjectsDialogComponent],
+  entryComponents: [ProjectsDialogComponent],
   imports: [
     CommonModule,
     CustomersRoutingModule,

@@ -9,7 +9,8 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+        <table mat-table matSort matSortActive="updatedAt" matSortDirection="desc" [dataSource]="dataSource"
+               class="mat-elevation-z8">
 
           <!-- Id Column -->
           <ng-container matColumnDef="id">
@@ -29,10 +30,10 @@
           </ng-container>
 
           <!-- Buildings Column -->
-          <ng-container matColumnDef="house">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Buildings</th>
+          <ng-container matColumnDef="lastProject">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Project</th>
             <td mat-cell *matCellDef="let element">
-              {{element?.house}}
+              {{element?.lastProject}}
             </td>
           </ng-container>
 
@@ -45,8 +46,7 @@
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: tableColumns;"
-              (click)="selection.toggle(row)">
+          <tr mat-row *matRowDef="let row; columns: tableColumns;" (click)="openProjectsDialog(row)">
           </tr>
         </table>
       </div>

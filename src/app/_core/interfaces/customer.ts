@@ -2,6 +2,6 @@ export interface Customer {
   id: string;
   name: string;
   avatar: string;
-  house: string;
+  lastProject: string;
   updatedAt: Date;
 }

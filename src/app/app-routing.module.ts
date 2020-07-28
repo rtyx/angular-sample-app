@@ -12,7 +12,7 @@ const routes: Routes = [
     pathMatch: 'full',
     canActivate: [AuthGuard],
     loadChildren: './customers/customers.module#CustomersModule'
-  },
+  }
 ];
 
 @NgModule({

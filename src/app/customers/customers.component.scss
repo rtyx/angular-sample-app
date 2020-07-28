@@ -12,6 +12,11 @@
       width: 100%;
       margin: 24px 0;
 
+      tr {
+        cursor: pointer;
+        position: relative;
+      }
+
       tr:hover {
         background: #eeeeee;
       }
@@ -25,3 +30,4 @@
     }
   }
 }
+

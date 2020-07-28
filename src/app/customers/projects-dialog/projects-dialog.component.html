@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>
+  {{ customer.name }}
+</h2>
+
+<mat-dialog-content>
+  Projects:
+  <ul>
+    <li *ngFor="let project of projects">
+      {{ project.name }}, {{ project.address }}
+    </li>
+  </ul>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-flat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
