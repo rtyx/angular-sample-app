@@ -54,7 +54,7 @@
         Log In
       </button>
 
-      <a [routerLink]="['/welcome/sign-up']">
+      <a *ngIf="!loading" [routerLink]="['/welcome/sign-up']">
         No account yet? Register here
       </a>
 
