@@ -1,6 +1,12 @@
 # AngularClient
 
-This project showcases a basic Angular client with authentication and a display of data on a table
+This project showcases a basic Angular client with authentication and a display of data on a table.
+
+It is connected to a dummy API that provides, consequentially, dummy data. It's not properly authenticating (checking the email, checking the password, hashing and salting...) but it serves as an example of a happy scenario on the back end. 
+
+## Live page
+
+On https://rtyx.github.io/angular-sample-app/ there's a live version of the last build 
 
 ## Development server
 
