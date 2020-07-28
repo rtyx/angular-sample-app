@@ -51,7 +51,7 @@ export class AuthService {
 
   public signOut(): void {
     this.tokenService.destroyToken();
-    window.location.replace(window.location.origin + '/welcome/log-in');
+    window.location.reload();
   }
 
 }
